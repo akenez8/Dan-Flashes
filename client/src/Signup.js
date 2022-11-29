@@ -11,6 +11,7 @@ return(
         type="text"
         placeholder="password">
         </input>
+        <button>Sign Up</button>
     </div>
 )
 }

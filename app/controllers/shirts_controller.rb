@@ -1,0 +1,3 @@
+class ShirtsController < ApplicationController
+    
+end

@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: rgb(40, 166, 166);
 }
 
 .App-link {
@@ -9,8 +10,8 @@
 .siteHeader{
   font-size: 40px;
   font-weight: bold;
-  color: black;
-  background-color: orange;
+  color: blue;
+  background-color:black;
 }
 
 .logoutButton{
@@ -18,7 +19,7 @@
   justify-content: right;
 }
 
-.homeDiv{
+.siteTitle{
   font-size: 28px;
   font-color: blue;
 }
@@ -27,4 +28,6 @@
   display: flex;
   flex-direction: left;
   margin-right: 10px;
+  color: blue;
+  background-color: yellow;
 }
