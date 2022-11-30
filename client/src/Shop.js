@@ -1,8 +1,9 @@
 import React from "react";
 
-function Shop(){
+function Shop({shirts}){
+
 return(
-    <div>AYYYYY HOW YA DOIN BUY SOME SHIRTS EH?</div>
+    <div className="shopDiv">AYYYYY HOW YA DOIN BUY SOME SHIRTS EH?</div>
 )
 }
 

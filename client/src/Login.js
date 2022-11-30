@@ -1,6 +1,10 @@
 import React from "react";
 
 function Login(){
+
+function loginClick(){
+    console.log("login")
+}
 return(
     <div className="loginDiv">
         <input 
@@ -11,7 +15,7 @@ return(
         type="text"
         placeholder="password">
         </input>
-        <button>Login</button>
+        <button onClick={loginClick}>Login</button>
     </div>
 )
 }

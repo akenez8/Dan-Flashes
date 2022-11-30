@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: rgb(40, 166, 166);
+  background-color: black;
 }
 
 .App-link {
@@ -10,24 +10,39 @@
 .siteHeader{
   font-size: 40px;
   font-weight: bold;
-  color: blue;
+  color:purple;
   background-color:black;
 }
 
-.logoutButton{
+.logoutButtonDiv{
   display: flex;
   justify-content: right;
 }
 
-.siteTitle{
+.homeTitle{
   font-size: 28px;
-  font-color: blue;
+  color: aqua;
 }
 
+.homeDescription{
+  color: aqua;
+  font-size: 18px;
+  max-width: 75%;
+  margin-left:10%;
+  margin: right 10%;
+  text-align:center;
+}
 .navbarDiv{
   display: flex;
   flex-direction: left;
   margin-right: 10px;
   color: blue;
-  background-color: yellow;
+  background-color:aqua;
+  width: 100%;
+}
+
+.shopDiv{
+  color:aqua;
+  font-size: 28px;
+
 }

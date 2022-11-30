@@ -10,17 +10,33 @@ import Signup from "./Signup"
 
 
 function App() {
+  const [user, setUser] = useState(false)
+  const [shirts, setShirts] = useState([])
+
+  useEffect(() => {
+    fetch("/shirts")
+    .then((res) => res.json())
+    .then((data) => setShirts(data))
+  },[])
+  console.log(shirts)
+
+  function logoutClick(){
+    console.log("logout")
+  }
+  
   return (
     <div className="App">
       <Router>
       <header className="App-header">
-        <button className="logoutButton" >Logout</button>
+        <div className="logoutButtonDiv">
+          <button className="logoutButton" onClick={logoutClick}>Logout</button>
+        </div>
       <NavBar />
       </header>
       <h1 className="siteHeader">Dan Flashes</h1>
       <Switch>
         <Route exact path="/"><Home /></Route>
-        <Route exact path="/Shop"><Shop /></Route>
+        <Route exact path="/Shop"><Shop shirts={shirts} /></Route>
         <Route exact path="/Login"><Login /></Route>
         <Route exact path="/Signup"><Signup /></Route>
       </Switch>

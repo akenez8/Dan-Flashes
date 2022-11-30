@@ -1,6 +1,11 @@
 import React from "react";
 
 function Signup(){
+
+function signupClick(){
+    console.log("signup")
+}
+
 return(
     <div className="SignupDiv">
         <input 
@@ -11,7 +16,7 @@ return(
         type="text"
         placeholder="password">
         </input>
-        <button>Sign Up</button>
+        <button onClick={signupClick}>Sign Up</button>
     </div>
 )
 }
