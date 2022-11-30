@@ -10,15 +10,39 @@ import Signup from "./Signup"
 
 
 function App() {
-  const [user, setUser] = useState(false)
+  const [currentUser, setCurrentUser] = useState(false)
   const [shirts, setShirts] = useState([])
+  const [errors, setErrors] = useState(false)
 
   useEffect(() => {
-    fetch("/shirts")
-    .then((res) => res.json())
-    .then((data) => setShirts(data))
+    fetch("/authorized_user")
+    .then((res) => {
+      if (res.ok) {
+        res.json()
+        .then((user) => {
+          updateUser(user);
+          // fetchShirts();
+          
+        });
+      }
+    })
   },[])
-  console.log(shirts)
+
+  // const fetchShirts = () => {
+  //   fetch("/shirts")
+  //   .then((res) => res.json())
+  //   .then(res => {
+  //     if(res.ok){
+  //       res.json().then(setShirts)
+  //     }else {
+  //       res.json().then(data => setErrors(data.error))
+  //     }
+  //   })
+  // }
+
+  const updateUser = (user) => setCurrentUser(user)
+
+  if(errors) return <h1>{errors}</h1>
 
   function logoutClick(){
     console.log("logout")
@@ -37,7 +61,7 @@ function App() {
       <Switch>
         <Route exact path="/"><Home /></Route>
         <Route exact path="/Shop"><Shop shirts={shirts} /></Route>
-        <Route exact path="/Login"><Login /></Route>
+        <Route exact path="/Login"><Login updateUser={updateUser}/></Route>
         <Route exact path="/Signup"><Signup /></Route>
       </Switch>
       </Router>

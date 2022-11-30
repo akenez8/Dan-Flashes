@@ -1,21 +1,65 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
+import {useHistory} from 'react-router-dom'
 
-function Login(){
+function Login({updateUser}){
+    const [formData, setFormData] = useState({
+        name:'',
+        password:''
+    })
+    const [errors, setErrors] = useState([])
+    const history = useHistory()
 
-function loginClick(){
-    console.log("login")
-}
+    const {name, password} = formData
+
+    function onSubmit(e){
+        e.preventDefault()
+        const user = {
+            name,
+            password
+        }
+       console.log(user)
+        fetch(`/Login`,{
+          method:'POST',
+          headers:{'Content-Type': 'application/json'},
+          body:JSON.stringify(user)
+        })
+        .then(res => {
+            if(res.ok){
+                res.json().then(user => {
+                    updateUser(user)
+                    history.push("/")
+                })
+            }else {
+                res.json().then(json => setErrors(json.errors))
+            }
+        })
+       
+    }
+
+    const handleChange = (e) => {
+        const { name, value } = e.target
+        setFormData({ ...formData, [name]: value })
+      }
+
 return(
     <div className="loginDiv">
-        <input 
+    <form onSubmit={onSubmit}>
+      <input
         type="text"
+        onChange={handleChange}
+        name="name"
+        value={formData.name}
         placeholder="username"
-        ></input>
-        <input
-        type="text"
-        placeholder="password">
-        </input>
-        <button onClick={loginClick}>Login</button>
+      />
+      <input
+        type="password"
+        onChange={handleChange}
+        name="password"
+        value={formData.password}
+        placeholder="password"
+      />
+      <input type="submit" value="submit"/>
+    </form>
     </div>
 )
 }

@@ -6,7 +6,7 @@ class PurchasesController < ApplicationController
     end
 
     def show
-        Purchase.find({user_id: params[:id]})
+        Purchase.find(params[:id])
         render json: find_purchase, status: :ok
     end
 
@@ -17,7 +17,7 @@ class PurchasesController < ApplicationController
 
     def update
         purchase = find_purchase
-        purchase.update(params.permit(:price))
+        purchase.update(purchase_params)
         render json: purchase, status: :accepted
     end
 
@@ -29,10 +29,10 @@ class PurchasesController < ApplicationController
     private
 
     def find_purchase
-        Purchase.find_by(id: params[:id])
+        Purchase.find_by(params[:id])
     end
 
     def purchase_params
-        params.permit(:user_id, :shirt_id)
+        params.permit(:user_id, :shirt_id, :price)
     end
 end

@@ -9,7 +9,9 @@ class ShirtsController < ApplicationController
         render json: find_shirt, status: :ok
     end
 
-    def find_game
+    private
+    
+    def find_shirt
         Shirt.find(params[:id])
     end
 end
