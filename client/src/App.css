@@ -41,8 +41,23 @@
   width: 100%;
 }
 
+.navButton{
+  color:aqua;
+  background-color: grey;
+  cursor:pointer;
+}
 .shopDiv{
   color:aqua;
   font-size: 28px;
 
+}
+
+.signupDiv{
+  color:aqua;
+  background:black;
+}
+
+.loginDiv{
+  color:aqua;
+  background:black;
 }

@@ -2,48 +2,49 @@ import React,{useState, useEffect} from "react";
 import {useHistory} from 'react-router-dom'
 
 function Login({updateUser}){
-    const [formData, setFormData] = useState({
-        name:'',
-        password:''
-    })
-    const [errors, setErrors] = useState([])
-    const history = useHistory()
+  const [formData, setFormData] = useState({
+    name:'',
+    password:''
+})
+const [errors, setErrors] = useState([])
+const history = useHistory()
 
-    const {name, password} = formData
+const {name, password} = formData
 
-    function onSubmit(e){
-        e.preventDefault()
-        const user = {
-            name,
-            password
-        }
-       console.log(user)
-        fetch(`/Login`,{
-          method:'POST',
-          headers:{'Content-Type': 'application/json'},
-          body:JSON.stringify(user)
-        })
-        .then(res => {
-            if(res.ok){
-                res.json().then(user => {
-                    updateUser(user)
-                    history.push("/")
-                })
-            }else {
-                res.json().then(json => setErrors(json.errors))
-            }
-        })
-       
+function onSubmit(e){
+    e.preventDefault()
+    const user = {
+        name,
+        password
     }
+   
+    fetch(`/users`,{
+      method:'POST',
+      headers:{'Content-Type': 'application/json'},
+      body:JSON.stringify(user)
+    })
+    .then(res => {
+        if(res.ok){
+            res.json().then(user => {
+                updateUser(user)
+                history.push(`/users/${user.id}`)
+            })
+        }else {
+            res.json().then(json => setErrors(Object.entries(json.errors)))
+        }
+    })
+   
+}
 
-    const handleChange = (e) => {
-        const { name, value } = e.target
-        setFormData({ ...formData, [name]: value })
-      }
+const handleChange = (e) => {
+    const { name, value } = e.target
+    setFormData({ ...formData, [name]: value })
+  }
 
 return(
     <div className="loginDiv">
     <form onSubmit={onSubmit}>
+      Name
       <input
         type="text"
         onChange={handleChange}
@@ -51,6 +52,7 @@ return(
         value={formData.name}
         placeholder="username"
       />
+      Password
       <input
         type="password"
         onChange={handleChange}

@@ -13,6 +13,8 @@ function App() {
   const [currentUser, setCurrentUser] = useState(false)
   const [shirts, setShirts] = useState([])
   const [errors, setErrors] = useState(false)
+  const [logout, setLogout] = useState("");
+
 
   useEffect(() => {
     fetch("/authorized_user")
@@ -21,39 +23,45 @@ function App() {
         res.json()
         .then((user) => {
           updateUser(user);
-          // fetchShirts();
-          
+
         });
       }
     })
   },[])
 
-  // const fetchShirts = () => {
-  //   fetch("/shirts")
-  //   .then((res) => res.json())
-  //   .then(res => {
-  //     if(res.ok){
-  //       res.json().then(setShirts)
-  //     }else {
-  //       res.json().then(data => setErrors(data.error))
-  //     }
-  //   })
-  // }
+  useEffect(() => {
+    const currentUser = sessionStorage.getItem('user')
+    if(currentUser){
+      setCurrentUser(JSON.parse(currentUser))
+    }
+  }, []);
+  
+  const handleLogout = () => {
+    fetch(`/logout`, {
+      method:"DELETE"
+    })
+    .then(res =>{
+      if(res.ok){
+        updateUser(false)
+      }
+    })
+  }
+ 
 
   const updateUser = (user) => setCurrentUser(user)
 
   if(errors) return <h1>{errors}</h1>
 
-  function logoutClick(){
-    console.log("logout")
+  function testClick(){
+    console.log({currentUser})
   }
-  
   return (
     <div className="App">
       <Router>
       <header className="App-header">
         <div className="logoutButtonDiv">
-          <button className="logoutButton" onClick={logoutClick}>Logout</button>
+        { currentUser ? <button className="logoutButton" onClick={handleLogout}>Logout</button> : null}
+        <button onClick={testClick}>test</button>
         </div>
       <NavBar />
       </header>
@@ -62,7 +70,7 @@ function App() {
         <Route exact path="/"><Home /></Route>
         <Route exact path="/Shop"><Shop shirts={shirts} /></Route>
         <Route exact path="/Login"><Login updateUser={updateUser}/></Route>
-        <Route exact path="/Signup"><Signup /></Route>
+        <Route exact path="/SignUp"><Signup updateUser={updateUser} /></Route>
       </Switch>
       </Router>
     </div>
