@@ -17,6 +17,7 @@
 .logoutButtonDiv{
   display: flex;
   justify-content: right;
+  float: right;
 }
 
 .homeTitle{
@@ -60,4 +61,8 @@
 .loginDiv{
   color:aqua;
   background:black;
+}
+
+.shirtCards{
+  
 }
