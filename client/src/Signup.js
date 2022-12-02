@@ -59,29 +59,6 @@ const handleChange = (e) => {
       </form>
     </div>
   );
-// return(
-//     <div className="signupDiv">
-//       <form className="signup-container" onSubmit={onSubmit}>
-//         Name
-//         <input
-//           type="text"
-//           value={FormData.name}
-//           onChange={handleChange}
-//           placeholder="Name"
-//         />
-//         Password
-//         <input
-//           type="password"
-//           value={formData.password}
-//           onChange={handleChange}
-//           placeholder="Password"
-//         />
-//         <div>
-//           <button type="submit">Create User</button>
-//         </div>
-//       </form>
-//     </div>
-// )
 }
 
 export default Signup

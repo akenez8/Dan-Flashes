@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import ShirtCard from "./ShirtCard"
-function Shop(){
+function Shop({userAddPurchase}){
     const [shirts, setShirts] = useState([])
     
     useEffect(() => {
@@ -13,13 +13,13 @@ function Shop(){
 
      
       const shirtCard = shirts.map((shirt) => {
-        return <ShirtCard name={shirt.name} image={shirt.image} price={shirt.price}/>
+        return <ShirtCard userAddPurchase={userAddPurchase} id={shirt.id} name={shirt.name} image={shirt.image} price={shirt.price}/>
       }
       )
    
       return(
     <div className="shopDiv">
-        <p>AYYYYY HOW YA DOIN BUY SOME SHIRTS EH?</p>
+        <p>Limited Selection: Buy before we run out!</p>
         <p className="shirtCards">{shirtCard}</p>
         </div>
         

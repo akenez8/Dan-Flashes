@@ -63,6 +63,21 @@
   background:black;
 }
 
+.shirtCardDiv{
+  max-width: 80%;
+  margin:auto;
+}
+
 .shirtCards{
+  background-color: black;
   
+}
+
+#shirtImg{
+max-width: 300px;
+max-height: 400px;
+}
+
+.userShirtsDiv{
+  color:aqua
 }
