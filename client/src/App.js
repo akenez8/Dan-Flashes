@@ -57,6 +57,28 @@ function App() {
         .then(data => setFetchedData(false));
      }
 
+     function deletePurchase(id){
+      console.log("deleting...")
+      setFetchedData(true)
+      const requestOptions = {
+        method: 'DELETE'
+      };
+      fetch(`/purchases/${id}`, requestOptions)
+      .then(() => setFetchedData(false))
+    }
+
+
+    function userUpdatePurchase(id, name){
+      setFetchedData(true)
+      const requestOptions = {
+        method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({name:name})
+        };
+        fetch(`/rentals/${id}`, requestOptions)
+            .then(response => response.json())
+            .then(data => setFetchedData(false));
+         }
   if(errors) return <h1>{errors}</h1>
 
   
@@ -69,10 +91,10 @@ function App() {
       <h1 className="siteHeader">Dan Flashes</h1>
       <Switch>
         <Route exact path="/"><Home currentUser={currentUser}/></Route>
-        <Route exact path="/Shop"><Shop userAddPurchase={userAddPurchase}/></Route>
+        <Route exact path="/Shop"><Shop userAddPurchase={userAddPurchase} currentUser={currentUser}/></Route>
         <Route exact path="/Login"><Login updateUser={updateUser}/></Route>
         <Route exact path="/SignUp"><Signup updateUser={updateUser} /></Route>
-        <Route exact path="/MyShirts"><UserShirts purchases={purchases} currentUser={currentUser}/></Route>
+        <Route exact path="/MyShirts"><UserShirts userUpdatePurchase={userUpdatePurchase} deletePurchase={deletePurchase} purchases={purchases} currentUser={currentUser}/></Route>
       </Switch>
       </Router>
     </div>

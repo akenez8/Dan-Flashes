@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ShirtCard({name,image,price, id, userAddPurchase}){
+function ShirtCard({name,image,price, id, userAddPurchase, currentUser}){
 
 function purchaseShirt(){
     userAddPurchase(id,price)
@@ -10,7 +10,7 @@ return (
         <p id="shirtName">{name}</p>
         <img id="shirtImg" src={image} alt="test"></img>
         <p id="price">{price}</p>
-        <button onClick={purchaseShirt}>Purchase</button>
+        {currentUser ? <button onClick={purchaseShirt}>Purchase</button> : null}
     </div>
 )
 }

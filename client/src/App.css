@@ -81,3 +81,8 @@ max-height: 400px;
 .userShirtsDiv{
   color:aqua
 }
+
+.userShirtImg{
+  max-width: 200px;
+  max-height: 200px;
+}

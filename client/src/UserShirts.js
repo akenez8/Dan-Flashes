@@ -1,27 +1,28 @@
 import React,{useState, useEffect} from 'react';
+import ShirtCard from './ShirtCard';
 import UserPurchases from "./UserPurchases"
 
-function UserShirts({currentUser, purchases, userAddPurchase}){
+function UserShirts({deletePurchase, currentUser, purchases, userAddPurchase, userUpdatePurchase}){
     const [userShirts, setUserShirts] = useState([])
 
-    useEffect(() => {
-        if(userShirts.length > 0){
-            console.log(userShirts)
-            const userPurchases = purchases.filter((purchase) => {
-                return (purchase.user_id === currentUser.id)})
+    // useEffect(() => {
+    //     if(userShirts.length > 0){
+    //         console.log(userShirts)
+    //         const userPurchases = purchases.filter((purchase) => {
+    //             return (purchase.user_id === currentUser.id)})
     
-            setUserShirts(userPurchases)
-        }
-    },[purchases])
+    //         setUserShirts(userPurchases)
+    //     }
+    // },[purchases])
 
-    const userShirtCard = userShirts.map(({shirt, id}) => {
+    const userShirtCard = purchases.map((purchase) => {
         return(
-            <UserPurchases currentUser={currentUser} userAddPurchase={userAddPurchase} id={id} updateName={shirt.name} image={shirt.image} price={shirt.price}/>
+            <UserPurchases id={purchase.id} deletePurchase={deletePurchase} userUpdatePurchase={userUpdatePurchase} currentUser={currentUser} userAddPurchase={userAddPurchase} name={purchase.shirt.name} image={purchase.shirt.image} price={purchase.shirt.price}/>
         )})
 
 return(
     <div className="userShirtsDiv">
-        <p>{currentUser.name}'s shirts</p>
+        {currentUser ? <p>{currentUser.name}'s shirts</p> : null}
         <p>{userShirtCard}</p>
         </div>
 )

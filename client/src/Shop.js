@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import ShirtCard from "./ShirtCard"
-function Shop({userAddPurchase}){
+function Shop({userAddPurchase, currentUser}){
     const [shirts, setShirts] = useState([])
     
     useEffect(() => {
@@ -13,7 +13,7 @@ function Shop({userAddPurchase}){
 
      
       const shirtCard = shirts.map((shirt) => {
-        return <ShirtCard userAddPurchase={userAddPurchase} id={shirt.id} name={shirt.name} image={shirt.image} price={shirt.price}/>
+        return <ShirtCard currentUser={currentUser} userAddPurchase={userAddPurchase} id={shirt.id} name={shirt.name} image={shirt.image} price={shirt.price}/>
       }
       )
    

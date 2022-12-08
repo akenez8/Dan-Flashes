@@ -1,12 +1,13 @@
 import React from 'react';
 
-function UserPurchases({updateName, image, price}){
+function UserPurchases({id, name, image, price, deletePurchase, userUpdatePurchase}){
+    
     return(
-        <div>
-            <p>{updateName}</p>
-            <p>{image}</p>
+        <div className="userShirtCardDiv">
+            <p>{name}</p>
+            <img className= "userShirtImg" src={image}></img>
             <p>{price}</p>
-            <button>Return</button>
+            <button onClick={() => deletePurchase(id)}>Return</button>
             </div>
     )
 }
