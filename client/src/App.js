@@ -1,6 +1,5 @@
 import './App.css';
 import React, { useState, useEffect } from 'react';
-import {useHistory} from 'react-router-dom'
 import { Switch, Route } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import NavBar from "./NavBar"
@@ -14,7 +13,6 @@ import UserShirts from "./UserShirts"
 function App() {
   const [currentUser, setCurrentUser] = useState(false)
   const [errors, setErrors] = useState(false)
-  const [logout, setLogout] = useState("");
   const [purchases, setPurchases] = useState([])
   const [fetchedData, setFetchedData] = useState(false)
   const updateUser = (user) => setCurrentUser(user)

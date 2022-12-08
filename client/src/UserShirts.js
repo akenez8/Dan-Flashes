@@ -1,5 +1,4 @@
 import React,{useState, useEffect} from 'react';
-import ShirtCard from './ShirtCard';
 import UserPurchases from "./UserPurchases"
 
 function UserShirts({deletePurchase, currentUser, purchases, userAddPurchase, userUpdatePurchase}){
