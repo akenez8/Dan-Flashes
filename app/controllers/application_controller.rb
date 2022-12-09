@@ -4,6 +4,12 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   rescue_from ActiveRecord::RecordInvalid, with: :record_invalid
 
+  def authorize
+    render json: { errors: ["Not authorized"] }, status: :unauthorized unless session.include? :user_id
+  end
+
+  private
+
   def record_not_found(obj)
     render json: { error: "#{obj.model} not found" }, status: 404
   end
@@ -12,7 +18,5 @@ class ApplicationController < ActionController::API
     render json: { errors: obj.record.errors.full_messages }, status: 422
   end
   
-  def authorize
-    render json: { errors: ["Not authorized"] }, status: :unauthorized unless session.include? :user_id
-  end
+  
 end

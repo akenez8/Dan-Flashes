@@ -31,7 +31,7 @@ return (
         <NavLink exact to="MyShirts" style={{ marginRight: "10px" }}><button className="navButton">My Shirts</button></NavLink>
         {currentUser ? null : <NavLink exact to="/Login" style={{ marginRight: "10px" }}><button className="navButton">Login</button></NavLink>}
         {currentUser ? null : <NavLink exact to="Signup" style={{ marginRight: "10px" }}><button className="navButton">Sign Up</button></NavLink>}
-        <NavLink exact to="/UpdateUser" style={{ marginRight: "10px" }}><button className="navButton">Change Username</button></NavLink>
+        {currentUser ? <NavLink exact to="/UpdateUser" style={{ marginRight: "10px" }}><button className="navButton">Change Username</button></NavLink> : null}
         <div className="logoutButtonDiv">
         { currentUser ? <button className="navButton" onClick={handleLogout} style={{ marginRight: "10px" }}>Logout</button> : null}
         <button onClick={testClick}>test</button>

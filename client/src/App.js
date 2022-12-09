@@ -30,6 +30,7 @@ function App() {
     })
   },[])
   
+  
   useEffect(() => {
     fetch("/purchases")
     .then((res) => res.json())
@@ -59,14 +60,14 @@ function App() {
       setPurchases(updatedShirt)
     }
 
-    function onUpdateShirt(updatedObj){
-      const updatedShirts = purchases?.map(shirt => {
-        if (shirt.id === updatedObj.id) {
+    function onUpdateUser(updatedObj){
+     setCurrentUser(currentUser => {
+        if (currentUser.id === updatedObj.id) {
           return updatedObj
         }else
-        return shirt
+        return currentUser
       })
-      setPurchases(updatedShirts)
+      
     }
    
   if(errors) return <h1>{errors}</h1>
@@ -80,12 +81,12 @@ function App() {
       </header>
       <h1 className="siteHeader">Dan Flashes</h1>
       <Switch>
-        <Route exact path="/UpdateUser"><UpdateUser  currentUser={currentUser} setCurrentUser={setCurrentUser} /></Route> 
+        <Route path="/UpdateUser"><UpdateUser  currentUser={currentUser} setCurrentUser={setCurrentUser} onUpdateUser={onUpdateUser}/></Route> 
         <Route exact path="/"><Home currentUser={currentUser}/></Route>
-        <Route exact path="/Shop"><Shop userAddPurchase={userAddPurchase} currentUser={currentUser}/></Route>
-        <Route exact path="/Login"><Login updateUser={updateUser}/></Route>
-        <Route exact path="/SignUp"><Signup updateUser={updateUser} /></Route>
-        <Route exact path="/MyShirts"><UserShirts  deleteShirt={deleteShirt} fetchedData={fetchedData} setFetchedData={setFetchedData} purchases={purchases} currentUser={currentUser} onUpdateShirt={onUpdateShirt}/></Route>
+        <Route path="/Shop"><Shop userAddPurchase={userAddPurchase} currentUser={currentUser}/></Route>
+        <Route path="/Login"><Login updateUser={updateUser}/></Route>
+        <Route path="/SignUp"><Signup updateUser={updateUser} /></Route>
+        <Route path="/MyShirts"><UserShirts  deleteShirt={deleteShirt} fetchedData={fetchedData} setFetchedData={setFetchedData} purchases={purchases} currentUser={currentUser} /></Route>
       </Switch>
       </Router>
     </div>
