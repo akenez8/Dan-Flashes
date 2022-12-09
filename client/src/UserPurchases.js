@@ -1,13 +1,20 @@
 import React from 'react';
 
-function UserPurchases({id, name, image, price, deletePurchase, userUpdatePurchase}){
+function UserPurchases({currentUser, id, name, image, price, purchase, deleteShirt}){
+    function deletePurchase(){
+        console.log("deleting...")
+        fetch(`/purchases/${purchase.id}`, {
+          method: 'DELETE'
+        });
+        deleteShirt(purchase)
+      }
 
     return(
-        <div className="userShirtCardDiv">
-            <p>{name}</p>
-            <img className= "userShirtImg" src={image} alt="Your Shirt"></img>
+        <div className="shirtCardDiv">
+           <p>{name}</p>
+            <img className= "shirtImg" src={image} alt="Your Shirt"></img>
             <p>${price}.00</p>
-            <button onClick={() => deletePurchase(id)}>Return</button>
+            <button className="cardButton" onClick={deletePurchase}>Return</button>
             </div>
     )
 }

@@ -8,7 +8,7 @@ import Shop from "./Shop"
 import Login from "./Login"
 import Signup from "./Signup"
 import UserShirts from "./UserShirts"
-
+import UpdateUser from "./UpdateUser"
 
 function App() {
   const [currentUser, setCurrentUser] = useState(false)
@@ -36,7 +36,6 @@ function App() {
     .then((data) => setPurchases(data))
   },[fetchedData])
 
-
   function userAddPurchase(id, price){
     setFetchedData(true)
     const newObj = {
@@ -55,28 +54,21 @@ function App() {
         .then(data => setFetchedData(false));
      }
 
-     function deletePurchase(id){
-      console.log("deleting...")
-      setFetchedData(true)
-      const requestOptions = {
-        method: 'DELETE'
-      };
-      fetch(`/purchases/${id}`, requestOptions)
-      .then(() => setFetchedData(false))
+    function deleteShirt(deleteObj){
+      const updatedShirt = purchases.filter((shirt) => shirt.id !== deleteObj.id)
+      setPurchases(updatedShirt)
     }
 
-
-    function userUpdatePurchase(id, name){
-      setFetchedData(true)
-      const requestOptions = {
-        method: 'PATCH',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({name:name})
-        };
-        fetch(`/rentals/${id}`, requestOptions)
-            .then(response => response.json())
-            .then(data => setFetchedData(false));
-         }
+    function onUpdateShirt(updatedObj){
+      const updatedShirts = purchases?.map(shirt => {
+        if (shirt.id === updatedObj.id) {
+          return updatedObj
+        }else
+        return shirt
+      })
+      setPurchases(updatedShirts)
+    }
+   
   if(errors) return <h1>{errors}</h1>
 
   
@@ -88,11 +80,12 @@ function App() {
       </header>
       <h1 className="siteHeader">Dan Flashes</h1>
       <Switch>
+        <Route exact path="/UpdateUser"><UpdateUser  currentUser={currentUser} setCurrentUser={setCurrentUser} /></Route> 
         <Route exact path="/"><Home currentUser={currentUser}/></Route>
         <Route exact path="/Shop"><Shop userAddPurchase={userAddPurchase} currentUser={currentUser}/></Route>
         <Route exact path="/Login"><Login updateUser={updateUser}/></Route>
         <Route exact path="/SignUp"><Signup updateUser={updateUser} /></Route>
-        <Route exact path="/MyShirts"><UserShirts userUpdatePurchase={userUpdatePurchase} deletePurchase={deletePurchase} purchases={purchases} currentUser={currentUser}/></Route>
+        <Route exact path="/MyShirts"><UserShirts  deleteShirt={deleteShirt} fetchedData={fetchedData} setFetchedData={setFetchedData} purchases={purchases} currentUser={currentUser} onUpdateShirt={onUpdateShirt}/></Route>
       </Switch>
       </Router>
     </div>

@@ -33,6 +33,6 @@ class PurchasesController < ApplicationController
     end
 
     def purchase_params
-        params.permit(:user_id, :shirt_id, :price)
+        params.permit(:user_id, :shirt_id, :price, :id)
     end
 end
