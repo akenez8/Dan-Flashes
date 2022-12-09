@@ -1,8 +1,6 @@
 import React from 'react';
 
 function UserPurchases({currentUser, id, purchase, deleteShirt}){
-  console.log(purchase)
-
     function deletePurchase(){
         console.log("deleting...")
         fetch(`/purchases/${purchase.id}`, {

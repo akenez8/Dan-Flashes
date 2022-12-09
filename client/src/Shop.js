@@ -19,7 +19,7 @@ function Shop({userAddPurchase, currentUser}){
    
       return(
     <div className="shopDiv">
-        <p>Limited Selection: Buy before we run out!</p>
+        <p>The More Complicated the Pattern, the higher the price. We don't make the rules, we just follow them.</p>
         <p className="shirtCards">{shirtCard}</p>
         </div>
         

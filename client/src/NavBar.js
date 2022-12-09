@@ -28,7 +28,7 @@ return (
         {currentUser ? null : <NavLink exact to="Signup" style={{ marginRight: "10px" }}><button className="navButton">Sign Up</button></NavLink>}
         {currentUser ? <NavLink exact to="/UpdateUser" style={{ marginRight: "10px" }}><button className="navButton">Change Username</button></NavLink> : null}
         <div className="logoutButtonDiv">
-        { currentUser ? <button className="navButton" onClick={handleLogout} style={{ marginRight: "10px" }}>Logout</button> : null}
+        { currentUser ? <button className="navButton" id="logoutbutton" onClick={handleLogout} style={{ marginRight: "10px" }}>Logout</button> : null}
         </div>
     </div>
 )
