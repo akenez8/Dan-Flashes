@@ -1,6 +1,8 @@
 import React from 'react';
 
 function UserPurchases({currentUser, id, purchase, deleteShirt}){
+  console.log(purchase)
+
     function deletePurchase(){
         console.log("deleting...")
         fetch(`/purchases/${purchase.id}`, {
@@ -10,9 +12,9 @@ function UserPurchases({currentUser, id, purchase, deleteShirt}){
       }
     return(
         <div className="shirtCardDiv">
-           <p>name</p>
-            <img className= "shirtImg" src="" alt="Your Shirt"></img>
-            <p>$price.00</p>
+           <p>{purchase.shirt.name}</p>
+            <img className= "shirtImg" src={purchase.shirt.image} alt="Your Shirt"></img>
+            <p>${purchase.price}.00</p>
             <button className="cardButton" onClick={deletePurchase}>Return</button>
             </div>
     )

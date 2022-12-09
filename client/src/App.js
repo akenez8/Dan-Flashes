@@ -30,12 +30,12 @@ function App() {
     })
   },[])
   
-  
   useEffect(() => {
     fetch("/purchases")
     .then((res) => res.json())
     .then((data) => setPurchases(data))
   },[fetchedData])
+
 
   function userAddPurchase(id, price){
     setFetchedData(true)

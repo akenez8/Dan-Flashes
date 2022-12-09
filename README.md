@@ -349,3 +349,26 @@ troubleshoot:
 
 - [Getting Started with Ruby on Rails on Render](https://render.com/docs/deploy-rails)
 - [Render Databases Guide](https://render.com/docs/databases)
+
+//reference for later
+<!-- useEffect(() => {
+    fetch("/authorized_user")
+    .then((res) => {
+      if (res.ok) {
+        res.json()
+        .then((user) => updateUser(user));
+        }
+        }).then(() => {
+          fetch(`/users/${currentUser.id}`)
+         .then(res => {
+            if(res.ok){
+              res.json().then(user => {
+                  setCurrentUser(user)
+                })
+            }else {
+                res.json().then(data => setErrors(data.error))
+            }
+        })
+      })
+    },[])
+    console.log(currentUser) -->
