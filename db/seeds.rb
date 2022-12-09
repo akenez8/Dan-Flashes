@@ -26,11 +26,4 @@ S8= Shirt.create(name:"Coreographed Complications", image:"https://encrypted-tbn
 S9= Shirt.create(name:"Complicated Coagulation", image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQcqnNDCHMlwd9GT5_J5lkatZ9fqHgDOAXHGn7KUubx_h-Wd6gCFU6Wiq1VaZ5lUtHhaE&usqp=CAU", price: 375)
 
 
-puts "Creating Purchases..."
-
-P1= Purchase.create(user_id: U1.id,shirt_id: S1.id, price: 500)
-P2= Purchase.create(user_id: U1.id, shirt_id:S2.id, price:800)
-P3= Purchase.create(user_id: U1.id, shirt_id:S3.id, price: 250)
-P4= Purchase.create(user_id: U2.id, shirt_id:S4.id, price: 600)
-
 puts "Seeding completed successfully"

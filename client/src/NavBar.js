@@ -18,11 +18,6 @@ function NavBar({currentUser, setCurrentUser}){
         })
         console.log("logged out")
       }
-
-      function testClick(){
-        console.log({currentUser})
-      }
-
       
 return (
     <div className="navbarDiv">
@@ -34,7 +29,6 @@ return (
         {currentUser ? <NavLink exact to="/UpdateUser" style={{ marginRight: "10px" }}><button className="navButton">Change Username</button></NavLink> : null}
         <div className="logoutButtonDiv">
         { currentUser ? <button className="navButton" onClick={handleLogout} style={{ marginRight: "10px" }}>Logout</button> : null}
-        <button onClick={testClick}>test</button>
         </div>
     </div>
 )

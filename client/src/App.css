@@ -8,9 +8,9 @@
 }
 
 .siteHeader{
-  font-size: 40px;
+  font-size: 69px;
   font-weight: bold;
-  color:purple;
+  color:aqua;
   background-color:black;
 }
 
@@ -21,13 +21,18 @@
 }
 
 .homeTitle{
-  font-size: 28px;
-  color: aqua;
+  font-size: 30px;
+  color: White;
+  margin: 0%
 }
 
+.homeImg{
+  margin-top: 1%;
+  width:400px;
+}
 .homeDescription{
   color: aqua;
-  font-size: 18px;
+  font-size: 22px;
   max-width: 75%;
   margin-left:10%;
   margin: right 10%;
@@ -50,7 +55,9 @@
 .shopDiv{
   color:aqua;
   font-size: 28px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .signupDiv{
@@ -66,6 +73,7 @@
 .shirtCardDiv{
   display: flex;
   flex-direction: column;
+  align-items: center;
   list-style: none;
   background-color: black;
   margin: 1rem;
@@ -75,7 +83,6 @@
   border-radius: 1rem;
   text-align: center;
   max-width: 300px;
-  box-shadow: 5px 5px white;
   height:100%;
 }
 
