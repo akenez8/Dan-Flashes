@@ -37,9 +37,10 @@ function UpdateUser({currentUser,onUpdateUser}){
     return (
         <div>
             <p className="nameChange">Change your Username!</p>
-            <form>
-                <input type="text" placeholder="username" onChange={handleChange}></input>
-                <button onClick={handleSubmit}>submit</button>
+            <form className="changeUsernameForm">
+              New Username:
+                <input type="text" placeholder="Username" onChange={handleChange}></input>
+                <button onClick={handleSubmit}>Change</button>
             </form>
             </div>
     )

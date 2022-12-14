@@ -111,6 +111,9 @@
   
 }
 
+.changeUsernameForm{
+  color: aqua;
+}
 .nameChange{
   color: aqua;
 }
@@ -144,10 +147,6 @@
   color:aqua;
 }
 
-/* <!-- HTML !-->
-<button class="navButton">Button 21</button> */
-
-/* CSS */
 .navButton {
   align-items: center;
   appearance: none;
