@@ -47,13 +47,18 @@
   width: 100%;
 }
 
-.navButton{
+/* .navButton{
   color:aqua;
   background-color: grey;
   cursor:pointer;
   min-width: 50px;
   min-height: 22.5px;
-}
+  text-align: center;
+  margin-top: 5px;
+  margin-left: auto;
+  margin-bottom: 5px;
+  padding: 2px;
+} */
 
 #logoutbutton{
   margin-left: 80%;
@@ -137,4 +142,51 @@
 
 .designsHeader{
   color:aqua;
+}
+
+/* <!-- HTML !-->
+<button class="navButton">Button 21</button> */
+
+/* CSS */
+.navButton {
+  align-items: center;
+  appearance: none;
+  background-color:grey;
+  background-image: linear-gradient(1deg, #4F58FD, #149BF3 99%);
+  background-size: calc(100% + 20px) calc(100% + 20px);
+  border-radius: 100px;
+  border-width: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: CircularStd,sans-serif;
+  font-size: 1rem;
+  height: auto;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 6px 20px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color .2s,background-position .2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.navButton:active,
+.navButton:focus {
+  outline: none;
+}
+
+.navButton:hover {
+  background-position: -20px -20px;
+}
+
+.navButton:focus:not(:active) {
+  box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
 }
