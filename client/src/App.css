@@ -51,6 +51,8 @@
   color:aqua;
   background-color: grey;
   cursor:pointer;
+  min-width: 50px;
+  min-height: 22.5px;
 }
 
 #logoutbutton{
@@ -131,4 +133,8 @@
 .userShirtImg{
   max-width: 200px;
   max-height: 200px;
+}
+
+.designsHeader{
+  color:aqua;
 }

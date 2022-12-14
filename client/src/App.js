@@ -9,6 +9,7 @@ import Login from "./Login"
 import Signup from "./Signup"
 import UserShirts from "./UserShirts"
 import UpdateUser from "./UpdateUser"
+import Designs from "./Designs"
 
 function App() {
   const [currentUser, setCurrentUser] = useState(false)
@@ -87,6 +88,7 @@ function App() {
         <Route path="/Login"><Login updateUser={updateUser}/></Route>
         <Route path="/SignUp"><Signup updateUser={updateUser} /></Route>
         <Route path="/MyShirts"><UserShirts  deleteShirt={deleteShirt} fetchedData={fetchedData} setFetchedData={setFetchedData} purchases={purchases} currentUser={currentUser} /></Route>
+        <Route path="/Designs"><Designs currentUser={currentUser}/></Route>
       </Switch>
       </Router>
     </div>

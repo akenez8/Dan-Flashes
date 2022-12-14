@@ -10,7 +10,7 @@ function UserShirts({currentUser, purchases, deleteShirt, userAddPurchase}){
 
 return(
     <div>
-        <p className="userShirtsTitle">Your Complicated Collection</p>
+        {currentUser ? <p className="userShirtsTitle">Your Complicated Collection</p> : <p className="userShirtsTitle">Login to view your shirts!</p>}
         <div className="userShirtsDiv">{userShirtCard}</div>
         </div>
 )
