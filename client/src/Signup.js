@@ -38,7 +38,8 @@ const handleChange = (e) => {
   }
   return (
     <div>
-      <form className="signup-container" onSubmit={onSubmit}>
+      <form className="signupDiv" onSubmit={onSubmit}>
+        Name
         <input
           type="text"
           onChange={handleChange}
@@ -46,6 +47,7 @@ const handleChange = (e) => {
           value={formData.name}
           placeholder="username"
         />
+        Password
         <input
           type="password"
           onChange={handleChange}
@@ -54,7 +56,7 @@ const handleChange = (e) => {
           placeholder="password"
         />
         <div>
-          <button type="submit">SignUp</button>
+          <button type="submit">Sign Up</button>
         </div>
       </form>
     </div>

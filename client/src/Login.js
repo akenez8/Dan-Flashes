@@ -63,7 +63,9 @@ return(
         value={formData.password}
         placeholder="password"
       />
-      <input type="submit" value="submit"/>
+      <div>
+      <button type="submit" value="submit">Login</button>
+      </div>
     </form>
     </div>
 )
