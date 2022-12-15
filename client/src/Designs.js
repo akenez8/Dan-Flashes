@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Designs(){
+function Designs({currentUser}){
 return(
-    <div>
+    <div className="designsDiv">
         <h1 className="designsHeader">Designs</h1>
     </div>
 )

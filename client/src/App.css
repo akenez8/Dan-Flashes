@@ -29,6 +29,7 @@
 .homeImg{
   margin-top: 1%;
   width:400px;
+  height: 400px;
 }
 .homeDescription{
   color: aqua;
@@ -46,19 +47,6 @@
   background-color:aqua;
   width: 100%;
 }
-
-/* .navButton{
-  color:aqua;
-  background-color: grey;
-  cursor:pointer;
-  min-width: 50px;
-  min-height: 22.5px;
-  text-align: center;
-  margin-top: 5px;
-  margin-left: auto;
-  margin-bottom: 5px;
-  padding: 2px;
-} */
 
 #logoutbutton{
   margin-left: 80%;
@@ -149,6 +137,21 @@
   color:aqua;
 }
 
+.designsForm{
+  color: aqua;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  max-width: 200px;
+}
+
+.createDesignDiv{
+  color:aqua;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
 .navButton {
   align-items: center;
   appearance: none;
