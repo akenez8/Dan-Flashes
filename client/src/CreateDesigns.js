@@ -10,6 +10,9 @@ return(
         <input type="text" placeholder="Image"></input>
         Price of your design
         <input type="text" placeholder="Price"></input>
+        <div>
+            <button>Submit</button>
+        </div>
         </form>
         </div>
 )
