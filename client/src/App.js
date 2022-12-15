@@ -81,7 +81,7 @@ function App() {
       <header className="App-header">
       <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser}/>
       </header>
-      <h1 className="siteHeader">Dan Flashes</h1>
+      <h1 id=""className="siteHeader">Dan Flashes</h1>
       <Switch>
         <Route path="/UpdateUser"><UpdateUser  currentUser={currentUser} setCurrentUser={setCurrentUser} onUpdateUser={onUpdateUser}/></Route> 
         <Route exact path="/"><Home currentUser={currentUser}/></Route>

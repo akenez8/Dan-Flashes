@@ -8,10 +8,14 @@
 }
 
 .siteHeader{
+  font-family: 'Calligraffitti', cursive;
   font-size: 69px;
   font-weight: bold;
-  color:aqua;
-  background-color:black;
+  text-shadow: -15px 5px 20px #ced0d3;
+  letter-spacing: 0.02em;
+  color: aqua;
+  text-shadow: 4px 4px 0px black, 
+    5px 5px 0px white;
 }
 
 .logoutButtonDiv{
@@ -43,14 +47,15 @@
   display: flex;
   flex-direction: left;
   margin-right: 10px;
-  color: blue;
-  background-color:aqua;
+  color: aqua;
+  background-color:black;
   width: 100%;
 }
 
 #logoutbutton{
   margin-left: 80%;
 }
+
 .shopDiv{
   color: white;
   font-size: 24px;
@@ -59,6 +64,9 @@
   align-items: center;
 }
 
+#shopText{
+  color: aqua;
+}
 .signupDiv{
   color:aqua;
   background:black;
@@ -156,7 +164,7 @@
   align-items: center;
   appearance: none;
   background-color:grey;
-  background-image: linear-gradient(1deg, #4F58FD, #149BF3 99%);
+  background-image: linear-gradient(1deg, aqua, rgb(38, 190, 190) 99%);
   background-size: calc(100% + 20px) calc(100% + 20px);
   border-radius: 100px;
   border-width: 0;
