@@ -10,6 +10,8 @@ return(
         <input type="text" placeholder="Image"></input>
         Price of your design
         <input type="text" placeholder="Price"></input>
+        Name of the designer
+        <input type="text" placeholder="Creator"></input>
         <div>
             <button>Submit</button>
         </div>
